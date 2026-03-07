@@ -28,7 +28,7 @@ public class StudentRepository {
     }
 
     public void delete(String studentId) {
-        Optional.ofNullable(storage.remove(studentId));
+        storage.remove(studentId);
     }
 
     public int count() {
@@ -37,6 +37,25 @@ public class StudentRepository {
 
     //File Persistence
     public void saveToFile(String filePath) throws IOException {
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))){
+            writer.write("studentID, name, gpa, course, skills");
+            writer.newLine();
+
+            for (Student student : storage.values()){
+                String skillsJoined = String.join("|", student.getSkills());
+                writer.write(String.format("%s,%s,%.2f,%s,%s",
+                        student.getStudentId(),
+                        student.getName(),
+                        student.getGpa(),
+                        student.getCourse(),
+                        skillsJoined));
+                writer.newLine();
+            }
+        }
+        System.out.println("Saved" + storage.size() + " students to "+ filePath);
+    }
+
+    public void loadFromFile(String filePath) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             boolean firstLine = true;
@@ -60,6 +79,7 @@ public class StudentRepository {
             }
         }
         System.out.println("Loaded " + storage.size() + " students from " + filePath);
+
     }
 
 }

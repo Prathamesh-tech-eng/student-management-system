@@ -23,7 +23,7 @@ public class Student {
     public String getName(){ return name; }
     public double getGpa() { return gpa; }
     public String getCourse(){ return course; }
-    public List<String> stringList() { return  skills; }
+    public List<String> getSkills() { return  skills; }
 
 
     //Setters
