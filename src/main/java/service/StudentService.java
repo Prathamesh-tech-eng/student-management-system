@@ -15,10 +15,10 @@ public class StudentService {
     }
 
     // Core Operations
-    public void enrollStudents(Student student){
+    public void enrollStudent(Student student){
         if (repository.exists(student.getStudentId())){
             throw new IllegalArgumentException(
-                    "Student with ID " + student.getStudentId() + " alerady exits"
+                    "Student with ID " + student.getStudentId() + " alerady exists"
             );
         }
 
