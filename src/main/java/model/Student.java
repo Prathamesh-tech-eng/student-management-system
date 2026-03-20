@@ -11,7 +11,7 @@ public class Student {
     private List<String> skills;
 
     public Student(String StudentId, String name, Double gpa, String course, List<String> skills){
-        this.studentId = studentId;
+        this.studentId = StudentId;
         this.name = name;
         this.gpa = gpa;
         this.course = course;

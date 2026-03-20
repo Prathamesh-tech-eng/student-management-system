@@ -1,0 +1,6 @@
+studentID, name, gpa, course, skills
+S005,UdayKumar,8.05,Data Science,Python|PowerBI|SQL
+S003,Ramharsh,8.90,Full Stack,React|Java|MongoDB
+S004,Priyank,8.20,DSA,Arrays|Trees|Graph
+S001,Prathamesh,8.65,Backend Development,java|Spring|SQL
+S002,Mohit,9.69,Cloud,AWS|Docker|Kubernetes
